@@ -4,45 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Why Us - A&M Advisory</title>
-
   <style>
     :root {
       --dark-blue: #11114d;
       --white: #ffffff;
       --red: #d72638;
-      --light-gray: #f5f5f5;    
+      --light-gray: #f5f5f5;
       --section-bg-alt: #eaeaea;
     }
- html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;
-    body {
+
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
       background-color: var(--white);
-      color: var(--text-gray);
     }
+
+    /* Navbar styles */
     .nav {
       background-color: var(--dark-blue);
       padding: 15px;
+      position: relative;
     }
 
     .nav-container {
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
-    .nav-container a {
-      margin-right: auto;
+    .nav-container a img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
     }
 
     nav ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
       display: flex;
       gap: 25px;
-      margin-left: 60px;
+      margin: 0;
     }
 
     nav a {
@@ -56,155 +59,195 @@
       color: var(--red);
     }
 
-    header nav img {
-      position: relative;
-      left: 10px;
-      top: 10px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      justify-content: space-between;
+      z-index: 1100;
     }
 
-#why-us {
-  background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
-  padding: 80px 20px;
-  color: #2c2c54;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  position: relative;
-  text-align: center; /* center all text inside */
-}
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-#why-us h1 {
-  font-size: 3.5rem;
-  color: #d93a3a;
-  font-weight: 900;
-  letter-spacing: 3px;
-  margin-bottom: 60px;
-  text-transform: uppercase;
-  opacity: 1; /* remove animation */
-}
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--dark-blue);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        display: none;
+        gap: 15px;
+        margin: 0;
+        z-index: 999;
+      }
 
-.why-us-container p {
-  font-size: 1.3rem;
-  max-width: 900px;
-  margin: 0 auto 40px;
-  line-height: 1.8;
-  color: #3b3b66;
-  text-align: justify; /* makes paragraphs look neat */
-  opacity: 1;
-}
+      nav ul.active {
+        display: flex;
+      }
 
-.why-us-container h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #190c4e;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-bottom: 3px solid #d93a3a;
-  display: inline-block;
-  padding-bottom: 8px;
-}
+      .hamburger {
+        display: flex;
+      }
+    }
 
-.why-us-list {
-  list-style: none;
-  padding-left: 0;
-  max-width: 700px;
-  margin: 0 auto 60px;
-  text-align: left; /* align list text to left for readability */
-}
+    /* WHY US Section */
+    #why-us {
+      background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
+      padding: 80px 20px;
+      color: #2c2c54;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
 
-.why-us-list li {
-  font-size: 1.2rem;
-  margin-bottom: 22px;
-  padding-left: 35px;
-  position: relative;
-  font-weight: 600;
-  color: #4b4b7d;
-  user-select: none;
-  line-height: 1.5;
-}
+    #why-us h1 {
+      font-size: 3.5rem;
+      color: #d93a3a;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      display: inline-block;
+      border-bottom: 3px solid #d72638;
+      padding-bottom: 10px;
+    }
 
-.why-us-list li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  font-size: 1.4rem;
-  color: #d93a3a;
-}
+    .why-us-container p {
+      font-size: 1.3rem;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+      color: #3b3b66;
+      text-align: justify;
+    }
 
-.why-us-container p:last-child {
-  font-style: italic;
-  font-weight: 700;
-  font-size: 1.25rem;
-  max-width: 900px;
-  margin: 0 auto;
-  color: #2c2c54;
-  text-align: center;
-  opacity: 1;
-}
+    .why-us-container h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #190c4e;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 3px solid #d93a3a;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
 
-#core-values {
-  background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
-  padding: 80px 20px;
-  color: #2c2c54;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-}
+    .why-us-list {
+      list-style: none;
+      padding-left: 0;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      text-align: left;
+    }
 
-#core-values h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #190c4e;
-  margin-bottom: 50px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-bottom: 3px solid #d93a3a;
-  display: inline-block;
-  padding-bottom: 8px;
-}
+    .why-us-list li {
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+      padding-left: 35px;
+      position: relative;
+      font-weight: 600;
+      color: #4b4b7d;
+      user-select: none;
+      line-height: 1.5;
+    }
 
-.core-values-list {
-  list-style: none;
-  padding-left: 0;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: left;
-}
+    .why-us-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 1.4rem;
+      color: #d93a3a;
+    }
 
-.core-values-list li {
-  font-size: 1.2rem;
-  margin-bottom: 35px;
-  padding-left: 35px;
-  position: relative;
-  font-weight: 500;
-  line-height: 1.7;
-  color: #4b4b7d;
-}
+    .why-us-container p:last-child {
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #2c2c54;
+      text-align: center;
+    }
 
-.core-values-list li::before {
-  content: "★";
-  position: absolute;
-  left: 0;
-  top: 3px;
-  font-size: 1.3rem;
-  color: #d93a3a;
-}
+    /* Core Values Section */
+    #core-values {
+      background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
+      padding: 80px 20px;
+      color: #2c2c54;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
 
+    #core-values h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #190c4e;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 3px solid #d93a3a;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .core-values-list {
+      list-style: none;
+      padding-left: 0;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .core-values-list li {
+      font-size: 1.2rem;
+      margin-bottom: 35px;
+      padding-left: 35px;
+      position: relative;
+      font-weight: 500;
+      line-height: 1.7;
+      color: #4b4b7d;
+    }
+
+    .core-values-list li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      top: 3px;
+      font-size: 1.3rem;
+      color: #d93a3a;
+    }
   </style>
 </head>
 <body>
 
-   <header>
+  <header>
     <nav class="nav">
       <div class="nav-container">
         <a href="index.html#home">
           <img src="IMG-20250603-WA0007.jpg" alt="A&M Logo" />
         </a>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <ul id="nav-bar">
           <li><a href="index.html#home"><b>Home</b></a></li>
           <li><a href="index.html#about"><b>About Us</b></a></li>
@@ -216,33 +259,30 @@
     </nav>
   </header>
 
-    <section id="why-us" >
-<h1 style="display: inline-block; border-bottom: 3px solid #d72638; padding-bottom: 10px; color: #d72638;">
-  Why Choose Us
-</h1>
+  <section id="why-us">
+    <h1>Why Choose Us</h1>
+    <div class="why-us-container">
+      <p>
+        At <strong>A&M Advisory</strong>, we offer comprehensive property management and consultancy services backed by deep industry expertise and a results-driven approach. From residential and commercial properties to specialized slum rehabilitation projects, our team delivers end-to-end solutions designed for impact.
+        <br><br>
+        Whether supporting industry leaders like <strong>Navbharat Mega Developers Pvt. Ltd.</strong> or working with new ventures, our foundation of integrity, transparency, and professionalism earns us long-standing trust and continued success across all partnerships.
+      </p>
+      <h2>What Sets Us Apart</h2>
+      <ul class="why-us-list">
+        <li>A diverse team of professionals with hands-on experience across sectors</li>
+        <li>Advanced systems and proprietary in-house software for efficient, cost-effective, performance-focused service delivery</li>
+        <li>Strong emphasis on risk mitigation and operational optimization</li>
+        <li>On-site consultancy with direct project deployment for real-time vendor collaboration</li>
+        <li>Deep local market insights combined with specialized industry knowledge</li>
+      </ul>
+    </div>
+  </section>
 
-  <div class="why-us-container">
-    <p>
-      At <strong>A&M Advisory</strong>, we offer comprehensive property management and consultancy services backed by deep industry expertise and a results-driven approach. From residential and commercial properties to specialized slum rehabilitation projects, our team delivers end-to-end solutions designed for impact.
-    <br>
-      Whether supporting industry leaders like <strong>Navbharat Mega Developers Pvt. Ltd.</strong> or working with new ventures, our foundation of integrity, transparency, and professionalism earns us long-standing trust and continued success across all partnerships.
-    </p>
-    <h2>What Sets Us Apart</h2>
-    <ul class="why-us-list">
-      <li> A diverse team of professionals with hands-on experience across sectors</li>
-      <li> Advanced systems and proprietary in-house software for efficient, cost-effective, performance-focused service delivery</li>
-      <li> Strong emphasis on risk mitigation and operational optimization</li>
-      <li> On-site consultancy with direct project deployment for real-time vendor collaboration</li>
-      <li> Deep local market insights combined with specialized industry knowledge</li>
-    </ul>
-    
-  </div>
-</section>
-<section id="core-values">
-  <div class="why-us-container">
-    <h2>Our Core Values</h2>
-    <ul class="core-values-list">
-      <li>
+  <section id="core-values">
+    <div class="why-us-container">
+      <h2>Our Core Values</h2>
+      <ul class="core-values-list">
+        <li>
         <strong>Passion & Commitment:</strong><br>
         We are deeply passionate about delivering results that align with our clients' success. Our commitment to excellence is reflected in the highest standards of professionalism, integrity, and ethical conduct in everything we do.
       </li>
@@ -257,9 +297,20 @@
     </ul>
   </div>
 </section>
+  
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navBar = document.getElementById('nav-bar');
 
+    hamburger.addEventListener('click', () => {
+      navBar.classList.toggle('active');
+    });
 
-
-</section>
-</body>
+    document.querySelectorAll('#nav-bar a').forEach(link => {
+      link.addEventListener('click', () => {
+        navBar.classList.remove('active');
+      });
+    });
+  </script></body>
 </html>
+
