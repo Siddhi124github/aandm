@@ -4,45 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Why Us - A&M Advisory</title>
-
   <style>
     :root {
       --dark-blue: #11114d;
       --white: #f9ebeb;
       --red: #d72638;
-      --light-gray: #f5f5f5;    
+      --light-gray: #f5f5f5;
       --section-bg-alt: #eaeaea;
     }
- html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;
-    body {
+
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
       background-color: var(--white);
-      color: var(--text-gray);
     }
+
+    /* Navbar styles */
     .nav {
       background-color: var(--dark-blue);
       padding: 15px;
+      position: relative;
     }
 
     .nav-container {
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
-    .nav-container a {
-      margin-right: auto;
+    .nav-container a img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
     }
 
     nav ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
       display: flex;
       gap: 25px;
-      margin-left: 60px;
+      margin: 0;
     }
 
     nav a {
@@ -56,205 +59,177 @@
       color: var(--red);
     }
 
-    header nav img {
-      position: relative;
-      left: 10px;
-      top: 10px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      justify-content: space-between;
+      z-index: 1100;
     }
-  .expertise-section {
-    max-width: 1100px;
-    
-    margin: 60px auto 80px auto;
-    padding: 0 25px;
-  }
 
-  .section-title {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--dark-blue);
-    text-align: center;
-    margin-bottom: 50px;
-    letter-spacing: 3px;
-    position: relative;
-    text-transform: uppercase;
-  }
-  .section-title::after {
-    content: "";
-    display: block;
-    width: 90px;
-    height: 5px;
-    background: var(--red);
-    margin: 20px auto 0 auto;
-    border-radius: 5px;
-  }
-
-  /* Expertise cards container grid */
-  .expertise-block {
-    background: white;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px var(--shadow-dark);
-    padding: 30px 35px;
-    margin-bottom: 30px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: default;
-  }
-  .expertise-block:hover {
-    box-shadow: 0 16px 40px rgba(215, 38, 56, 0.35);
-    transform: translateY(-7px);
-  }
-  .expertise-block h3 {
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    color: var(--dark-blue);
-    position: relative;
-    padding-left: 16px;
-  }
-  /* Stylish vertical line left of h3 */
-  .expertise-block h3::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    width: 6px;
-    height: 30px;
-    background: var(--red);
-    border-radius: 4px;
-  }
-
-  .expertise-block ul {
-    margin: 0;
-    padding-left: 20px;
-    color: #555;
-    font-size: 1.1rem;
-  }
-  .expertise-block ul li {
-    margin-bottom: 12px;
-    line-height: 1.4;
-    position: relative;
-    padding-left: 25px;
-  }
-  /* Custom bullet icon for list items */
-  .expertise-block ul li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: var(--red);
-    font-weight: 700;
-  }
-
-  /* Responsive tweaks */
-  @media (max-width: 900px) {
-    .nav-container {
-      padding: 0 10px;
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
-    nav ul {
-      gap: 20px;
+
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--dark-blue);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        display: none;
+        gap: 15px;
+        margin: 0;
+        z-index: 999;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
     }
+
+    /* Expertise Section */
+    .expertise-section {
+      max-width: 1100px;
+      margin: 60px auto 80px auto;
+      padding: 0 25px;
+    }
+
     .section-title {
-      font-size: 2.4rem;
-      letter-spacing: 2px;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      text-align: center;
+      margin-bottom: 50px;
+      letter-spacing: 3px;
+      position: relative;
+      text-transform: uppercase;
     }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 5px;
+      background: var(--red);
+      margin: 20px auto 0 auto;
+      border-radius: 5px;
+    }
+
     .expertise-block {
-      padding: 25px 20px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 30px 35px;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: default;
     }
-  }
-  @media (max-width: 480px) {
-    nav ul {
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: flex-end;
-      margin-left: 0;
+
+    .expertise-block:hover {
+      box-shadow: 0 16px 40px rgba(215, 38, 56, 0.35);
+      transform: translateY(-7px);
     }
-    .expertise-block ul {
-      font-size: 1rem;
-      padding-left: 18px;
-    }
+
     .expertise-block h3 {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: var(--dark-blue);
+      position: relative;
+      padding-left: 16px;
     }
-  }
-   html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* adjust if nav height changes */
-}
 
-/* Hamburger Styles */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  width: 30px;
-  height: 25px;
-  justify-content: space-between;
-  z-index: 1100;
-}
+    .expertise-block h3::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 6px;
+      height: 30px;
+      background: var(--red);
+      border-radius: 4px;
+    }
 
-.hamburger div {
-  width: 100%;
-  height: 4px;
-  background-color: var(--white);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
+    .expertise-block ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #555;
+      font-size: 1.1rem;
+    }
 
-/* Mobile styles */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    background-color: var(--dark-blue);
-    position: fixed;
-    top: 50px; /* below nav */
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-    padding-top: 20px;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    gap: 15px;
-    margin-left: 0;
-    z-index: 999;
-  }
-  
-  nav ul.active {
-    transform: translateX(0);
-  }
-  
-  .hamburger {
-    display: flex;
-  }
-  
-  .nav-container a {
-    margin-right: 0;
-  }
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px; /* height of your nav */
-}
+    .expertise-block ul li {
+      margin-bottom: 12px;
+      line-height: 1.4;
+      position: relative;
+      padding-left: 25px;
+    }
 
+    .expertise-block ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: 700;
+    }
 
-</style>
+    @media (max-width: 900px) {
+      .section-title {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+      }
 
+      .expertise-block {
+        padding: 25px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .expertise-block ul {
+        font-size: 1rem;
+        padding-left: 18px;
+      }
+
+      .expertise-block h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
+  </style>
 </head>
 <body>
 
-   <header>
+  <header>
     <nav class="nav">
       <div class="nav-container">
         <a href="index.html#home">
           <img src="IMG-20250603-WA0007.jpg" alt="A&M Logo" />
         </a>
         <div class="hamburger" id="hamburger">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <ul id="nav-bar">
           <li><a href="index.html#home"><b>Home</b></a></li>
           <li><a href="index.html#about"><b>About Us</b></a></li>
@@ -266,115 +241,115 @@ html {
     </nav>
   </header>
 
-
   <section id="expertise" class="expertise-section">
-  <h2 class="section-title">Our Expertise</h2>
+    <h2 class="section-title">Our Expertise</h2>
 
- <div class="expertise-block">
-    <h3>Surveying the Project</h3>
-    <ul>
-      <li>Employ cutting-edge technology such as LiDAR and 3D mapping for comprehensive area analysis.</li>
-      <li>Assess and identify potential challenges or areas requiring special attention.</li>
-      <li>Develop and utilize in-house software for primary demographic assessment.</li>
-      <li>Conduct environmental impact assessments to ensure sustainability and regulatory compliance.</li>
-      <li>Prepare detailed reports outlining survey findings with data analytics.</li>
-    </ul>
-</div>
+    <div class="expertise-block">
+      <h3>Surveying the Project</h3>
+      <ul>
+        <li>Employ cutting-edge technology such as LiDAR and 3D mapping for comprehensive area analysis.</li>
+        <li>Assess and identify potential challenges or areas requiring special attention.</li>
+        <li>Develop and utilize in-house software for primary demographic assessment.</li>
+        <li>Conduct environmental impact assessments to ensure sustainability and regulatory compliance.</li>
+        <li>Prepare detailed reports outlining survey findings with data analytics.</li>
+      </ul>
+    </div>
 
-<div class="expertise-block">
-    <h3>Initial Engagement with Society</h3>
-    <ul>
-      <li>Organize introductory meetings with society members to present the redevelopment proposal overview.</li>
-      <li>Deliver AV presentations using survey data to enhance understanding of existing conditions.</li>
-      <li>Highlight social and economic benefits like improved amenities, increased property values, and enhanced community living.</li>
-      <li>Distribute informational brochures summarizing project impacts and benefits.</li>
-    </ul>
-</div>
+    <div class="expertise-block">
+      <h3>Initial Engagement with Society</h3>
+      <ul>
+        <li>Organize introductory meetings with society members to present the redevelopment proposal overview.</li>
+        <li>Deliver AV presentations using survey data to enhance understanding of existing conditions.</li>
+        <li>Highlight social and economic benefits like improved amenities, increased property values, and enhanced community living.</li>
+        <li>Distribute informational brochures summarizing project impacts and benefits.</li>
+      </ul>
+    </div>
 
-<div class="expertise-block">
-    <h3>Convincing Society for Redevelopment</h3>
-    <ul>
-      <li>Tailor presentations addressing specific concerns from initial engagements.</li>
-      <li>Conduct workshops and town hall sessions educating society members on redevelopment intricacies.</li>
-      <li>Share success stories of similar projects to instill confidence.</li>
-      <li>Provide clear timelines illustrating project milestones and anticipated completion dates.</li>
-      <li>Establish feedback mechanisms to continuously address concerns.</li>
-      <li>Maintain dedicated communication channels for prompt query resolution.</li>
-    </ul>
- </div>
+    <div class="expertise-block">
+      <h3>Convincing Society for Redevelopment</h3>
+      <ul>
+        <li>Tailor presentations addressing specific concerns from initial engagements.</li>
+        <li>Conduct workshops and town hall sessions educating society members on redevelopment intricacies.</li>
+        <li>Share success stories of similar projects to instill confidence.</li>
+        <li>Provide clear timelines illustrating project milestones and anticipated completion dates.</li>
+        <li>Establish feedback mechanisms to continuously address concerns.</li>
+        <li>Maintain dedicated communication channels for prompt query resolution.</li>
+      </ul>
+    </div>
 
- <div class="expertise-block">
-    <h3>Management Meeting Arrangements</h3>
-    <ul>
-      <li>Facilitate pre-meeting briefing sessions ensuring representatives are well-prepared.</li>
-      <li>Develop comprehensive agendas covering design proposals, financial considerations, and timelines.</li>
-      <li>Use visual aids, including 3D models and renderings, to convey redevelopment vision.</li>
-      <li>Encourage open dialogue fostering collaborative decision-making.</li>
-    </ul>
-</div>
-<div class="expertise-block">
-    <h3>Documentation</h3>
-    <ul>
-      <li>Clearly outline document purposes and implications to address concerns proactively.</li>
-      <li>Engage legal experts assisting society members with contractual obligations.</li>
-      <li>Establish secure online portals for confidential document submission.</li>
-      <li>Conduct information sessions guiding members through signing processes with in-person and virtual options.</li>
-    </ul>
-</div>
+    <div class="expertise-block">
+      <h3>Management Meeting Arrangements</h3>
+      <ul>
+        <li>Facilitate pre-meeting briefing sessions ensuring representatives are well-prepared.</li>
+        <li>Develop comprehensive agendas covering design proposals, financial considerations, and timelines.</li>
+        <li>Use visual aids, including 3D models and renderings, to convey redevelopment vision.</li>
+        <li>Encourage open dialogue fostering collaborative decision-making.</li>
+      </ul>
+    </div>
 
- <div class="expertise-block">
-    <h3>Communication</h3>
-    <ul>
-      <li>Streamline documentation via digital platforms for efficiency and accuracy.</li>
-      <li>Implement real-time online data storage accessible to Navbharat Mega Developers Pvt Ltd.</li>
-      <li>Identify key decision-makers and assign points of contact.</li>
-      <li>Communicate regularly with society members, keeping them informed and addressing concerns promptly.</li>
-    </ul>
-</div>
+    <div class="expertise-block">
+      <h3>Documentation</h3>
+      <ul>
+        <li>Clearly outline document purposes and implications to address concerns proactively.</li>
+        <li>Engage legal experts assisting society members with contractual obligations.</li>
+        <li>Establish secure online portals for confidential document submission.</li>
+        <li>Conduct information sessions guiding members through signing processes with in-person and virtual options.</li>
+      </ul>
+    </div>
 
-  <div class="expertise-block">
-    <h3>Society Member Relocation</h3>
-    <ul>
-      <li>Collaborate with Navbharat Mega Developers Pvt Ltd to secure alternative housing, negotiating favorable terms.</li>
-      <li>Provide dedicated helpline and relocation support teams to address transition challenges.</li>
-      <li>Implement phased relocation strategies to minimize disruption and maintain community spirit.</li>
-    </ul>
-  </div>
+    <div class="expertise-block">
+      <h3>Communication</h3>
+      <ul>
+        <li>Streamline documentation via digital platforms for efficiency and accuracy.</li>
+        <li>Implement real-time online data storage accessible to Navbharat Mega Developers Pvt Ltd.</li>
+        <li>Identify key decision-makers and assign points of contact.</li>
+        <li>Communicate regularly with society members, keeping them informed and addressing concerns promptly.</li>
+      </ul>
+    </div>
 
-<div class="expertise-block">
-    <h3>Demolition and Site Clearance</h3>
-    <ul>
-      <li>Engage licensed demolition experts for safe and efficient processes.</li>
-      <li>Implement strict safety protocols and adhere to regulations.</li>
-      <li>Coordinate responsible waste disposal promoting environmental sustainability.</li>
-      <li>Secure site perimeter with 24/7 security and surveillance.</li>
-      <li>Maintain transparent communication with local communities regarding noise, dust, and safety.</li>
-    </ul>
-</div>
+    <div class="expertise-block">
+      <h3>Society Member Relocation</h3>
+      <ul>
+        <li>Collaborate with Navbharat Mega Developers Pvt Ltd to secure alternative housing, negotiating favorable terms.</li>
+        <li>Provide dedicated helpline and relocation support teams to address transition challenges.</li>
+        <li>Implement phased relocation strategies to minimize disruption and maintain community spirit.</li>
+      </ul>
+    </div>
 
- <div class="expertise-block">
-    <h3>Site Handover</h3>
-    <ul>
-      <li>Final handover of cleared site with comprehensive documentation including survey reports, meeting minutes, and agreements.</li>
-      <li>Provide a designated post-handover period to address queries or issues.</li>
-      <li>A&M Advisory to manage this as a turnkey project, delivering fully cleared land for redevelopment to Navbharat Mega Developers Pvt Ltd.</li>
-    </ul>
-  </div>
-</section>
+    <div class="expertise-block">
+      <h3>Demolition and Site Clearance</h3>
+      <ul>
+        <li>Engage licensed demolition experts for safe and efficient processes.</li>
+        <li>Implement strict safety protocols and adhere to regulations.</li>
+        <li>Coordinate responsible waste disposal promoting environmental sustainability.</li>
+        <li>Secure site perimeter with 24/7 security and surveillance.</li>
+        <li>Maintain transparent communication with local communities regarding noise, dust, and safety.</li>
+      </ul>
+    </div>
 
-</body>
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navBar = document.getElementById('nav-bar');
+    <div class="expertise-block">
+      <h3>Site Handover</h3>
+      <ul>
+        <li>Final handover of cleared site with comprehensive documentation including survey reports, meeting minutes, and agreements.</li>
+        <li>Provide a designated post-handover period to address queries or issues.</li>
+        <li>A&M Advisory to manage this as a turnkey project, delivering fully cleared land for redevelopment to Navbharat Mega Developers Pvt Ltd.</li>
+      </ul>
+    </div>
+  </section>
 
-  hamburger.addEventListener('click', () => {
-    navBar.classList.toggle('active');
-  });
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navBar = document.getElementById('nav-bar');
 
-  // Close menu on link click (for mobile)
-  document.querySelectorAll('#nav-bar a').forEach(link => {
-    link.addEventListener('click', () => {
-      navBar.classList.remove('active');
+    hamburger.addEventListener('click', () => {
+      navBar.classList.toggle('active');
     });
-  });
-</script>
+
+    document.querySelectorAll('#nav-bar a').forEach(link => {
+      link.addEventListener('click', () => {
+        navBar.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
