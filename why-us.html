@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why Us - A&M Advisory</title>
+
+  <style>
+    :root {
+      --dark-blue: #11114d;
+      --white: #ffffff;
+      --red: #d72638;
+      --light-gray: #f5f5f5;    
+      --section-bg-alt: #eaeaea;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--text-gray);
+    }
+    .nav {
+      background-color: var(--dark-blue);
+      padding: 15px;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container a {
+      margin-right: auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+      margin-left: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: large;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    header nav img {
+      position: relative;
+      left: 10px;
+      top: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+#why-us {
+  background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
+  padding: 80px 20px;
+  color: #2c2c54;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+  text-align: center; /* center all text inside */
+}
+
+#why-us h1 {
+  font-size: 3.5rem;
+  color: #d93a3a;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  opacity: 1; /* remove animation */
+}
+
+.why-us-container p {
+  font-size: 1.3rem;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  color: #3b3b66;
+  text-align: justify; /* makes paragraphs look neat */
+  opacity: 1;
+}
+
+.why-us-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #190c4e;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #d93a3a;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.why-us-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: left; /* align list text to left for readability */
+}
+
+.why-us-list li {
+  font-size: 1.2rem;
+  margin-bottom: 22px;
+  padding-left: 35px;
+  position: relative;
+  font-weight: 600;
+  color: #4b4b7d;
+  user-select: none;
+  line-height: 1.5;
+}
+
+.why-us-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 1.4rem;
+  color: #d93a3a;
+}
+
+.why-us-container p:last-child {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #2c2c54;
+  text-align: center;
+  opacity: 1;
+}
+
+#core-values {
+  background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
+  padding: 80px 20px;
+  color: #2c2c54;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+#core-values h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #190c4e;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #d93a3a;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.core-values-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.core-values-list li {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  padding-left: 35px;
+  position: relative;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #4b4b7d;
+}
+
+.core-values-list li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  font-size: 1.3rem;
+  color: #d93a3a;
+}
+
+  </style>
+</head>
+<body>
+
+   <header>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html#home">
+          <img src="C:\Users\Admin\Downloads\IMG-20250603-WA0007.jpg" alt="A&M Logo" />
+        </a>
+        <ul id="nav-bar">
+          <li><a href="index.html#home"><b>Home</b></a></li>
+          <li><a href="index.html#about"><b>About Us</b></a></li>
+          <li><a href="why-us.html"><b>Why Us</b></a></li>
+          <li><a href="expertise.html"><b>Our Expertise</b></a></li>
+          <li><a href="index.html#contact"><b>Contact Us</b></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+    <section id="why-us" >
+<h1 style="display: inline-block; border-bottom: 3px solid #d72638; padding-bottom: 10px; color: #d72638;">
+  Why Choose Us
+</h1>
+
+  <div class="why-us-container">
+    <p>
+      At <strong>A&M Advisory</strong>, we offer comprehensive property management and consultancy services backed by deep industry expertise and a results-driven approach. From residential and commercial properties to specialized slum rehabilitation projects, our team delivers end-to-end solutions designed for impact.
+    <br>
+      Whether supporting industry leaders like <strong>Navbharat Mega Developers Pvt. Ltd.</strong> or working with new ventures, our foundation of integrity, transparency, and professionalism earns us long-standing trust and continued success across all partnerships.
+    </p>
+    <h2>What Sets Us Apart</h2>
+    <ul class="why-us-list">
+      <li> A diverse team of professionals with hands-on experience across sectors</li>
+      <li> Advanced systems and proprietary in-house software for efficient, cost-effective, performance-focused service delivery</li>
+      <li> Strong emphasis on risk mitigation and operational optimization</li>
+      <li> On-site consultancy with direct project deployment for real-time vendor collaboration</li>
+      <li> Deep local market insights combined with specialized industry knowledge</li>
+    </ul>
+    
+  </div>
+</section>
+<section id="core-values">
+  <div class="why-us-container">
+    <h2>Our Core Values</h2>
+    <ul class="core-values-list">
+      <li>
+        <strong>Passion & Commitment:</strong><br>
+        We are deeply passionate about delivering results that align with our clients' success. Our commitment to excellence is reflected in the highest standards of professionalism, integrity, and ethical conduct in everything we do.
+      </li>
+      <li>
+        <strong>Honesty & Openness:</strong><br>
+        We believe in intellectual honesty and transparent communication. We speak with clarity and candour, offering straightforward insights that foster trust and long-term partnerships.
+      </li>
+      <li>
+        <strong>Practical Approach:</strong><br>
+        We blend bold, strategic thinking with a hands-on, practical mindset. Our focus is on execution—turning ideas into action and delivering measurable results that drive real impact.
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+</section>
+</body>
+</html>

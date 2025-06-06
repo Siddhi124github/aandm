@@ -1,0 +1,461 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/image/favicon.ico" />
+  <title>A&M</title>
+  <style>
+    :root {
+      --dark-blue: #11114d;
+      --white: #ffffff;
+      --red: #d72638;
+      --light-gray: #f5f5f5;    
+      --section-bg-alt: #eaeaea;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--text-gray);
+    }
+    .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--dark-blue);
+  padding: 7px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+    .nav-container a {
+      margin-right: auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+      margin-left: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: large;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    header nav img {
+      position: relative;
+      left: 10px;
+      top: 4px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    #home {
+      position: relative;
+      background-image: url("C:/Users/Admin/Downloads/8d921552-497d-4c11-8cc1-57e719bdaabd.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(164, 172, 198, 0.4); 
+      z-index: -1;
+    }
+
+    .hero-content {
+      padding: 20px 40px;
+    }
+
+    .company-name {
+      font-size: 12rem;
+      margin: 0;
+      color: var(--white);
+    }
+
+  .red-amp {
+    color: var(--red);
+  }
+    .tagline {
+      font-size: 2rem;
+      margin-top: 10px;
+      color: var(--white);
+    }
+
+    .fade-in.slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1.5s forwards ease-out;
+    }
+
+    .fade-in.slide-up.company-name {
+      animation-delay: 0.3s;
+    }
+
+    .fade-in.slide-up.tagline {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      padding: 70px 30px;
+    }
+
+    section h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: var(--red);
+      margin-bottom: 30px;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      color: var(--text-gray);
+    }
+#about {
+  background-color: var(--light-gray);
+  padding: 70px 30px 70px;
+  text-align: center;
+}
+
+#about h1 {
+  font-size: 4rem; 
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-top: 0%;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#about p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #333333;
+  font-family: 'Georgia', serif;
+  font-style: normal;
+  font-weight: 400;
+  text-align: justify;
+  text-indent: 30px;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--red);
+   border-right: 5px solid var(--red);
+}
+
+    #about, #mission-vision, #why-us, #expertise {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #contact {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 20px 5px;
+    }
+
+    #contact h1 {
+      font-size: 2.5rem;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #contact a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    form input,
+    form textarea {
+      padding: 15px;
+      border: 1px solid var(--red);
+      margin: 5px 0;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #a81e2f;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 0 0 15px 0;
+    }
+    
+.mission-vision-bg {
+  position: relative;
+  background-color: #a81e2f;
+  padding: 100px 20px;
+  z-index: 1;
+  color: white;
+}
+
+.mission-vision-bg h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.mission-vision-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+.card {
+  flex: 1 1 400px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(6, 5, 5, 0.2);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(30px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+  background-color: rgb(228, 219, 219);
+  border: 1px solid #a81e2f;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--red);
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  font-family: 'Georgia', serif;
+  line-height: 1.7;
+  text-align: justify;
+  text-indent: 25px;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 1.2s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 768px) {
+  .mission-vision-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="#home">
+          <img src="C:\Users\Admin\Downloads\IMG-20250603-WA0007.jpg" alt="A&M Logo" />
+        </a>
+        <ul id="nav-bar">
+          <li><a href="#home"><b>Home</b></a></li>
+          <li><a href="#about"><b>About Us</b></a></li>
+          <li><a href="why-us.html"><b>Why Us</b></a></li>
+          <li><a href="expertise.html"><b>Our Expertise</b></a></li>
+          <li><a href="#contact"><b>Contact Us</b></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+ <section id="home"> 
+  <div class="hero-content">
+    <h1 class="fade-in slide-up company-name">
+      A<span class="red-amp">&amp;</span>M
+    </h1>
+    <h1 class="fade-in slide-up tagline">Advisory excellence, Building the Future Together.</h1>
+  </div>
+</section>
+
+  <main>
+    <section id="about">
+      <h1 class="fade-scroll">About Us</h1>
+       <p class="fade-scroll"><b>A&M Advisory </b>is a leading Indian real estate services enterprise, shaped by a team of professionals from diverse domains, each bringing in-depth experience and expertise. Our strength lies in our people and the values they bring, defining who we are and how we serve.
+
+We are committed to accelerating the success of our partners by fostering a culture rooted in service excellence, strategic insight, and sustained client engagement. At <strong>A&M Advisory </strong>, we recognize the growing need for maximized utilization of facilities, assets, and services—alongside value-added engineering solutions and measurable employee satisfaction.
+
+Our experts work closely with clients to unlock the full potential of their portfolios and facilities, aligning our efforts with their broader corporate goals. We do this by driving operational efficiency, optimizing costs, and mitigating risks—ultimately creating lasting, meaningful experiences for our clients.
+
+We offer a comprehensive range of fully customizable services designed to meet the unique needs of each facility, ensuring the right fit for every client, every time.
+</p>
+    </section>   
+  <div class="mission-vision-bg">
+    <h1 class="fade-in">Our Mission & Vision</h1>
+    <div class="mission-vision-wrapper">
+      <div class="card fade-scroll">
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is to help our clients create such high levels of value that together we set new standards of excellence in respective industries.
+        </p>
+      </div>
+    <div class="card fade-scroll">
+        <h2>Our Vision</h2>
+        <p>
+          To maintain an uncompromised standard of ethics and a commitment to provide innovative and value-added solutions to our clients. To strive to exceed our client’s expectations by meeting their needs in an innovative and open manner.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="contact">
+      <h1><u>Contact Us</u></h1>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><b>Phone no:</b> <a href="tel:+911234567890">+91 1234567890</a></p>
+          <p><b>Email:</b> <a href="mailto:acquireandmanage@gmail.com">acquireandmanage@gmail.com</a></p>
+          <p><b>Address:</b> Hallmark Business Plaza, 1106, Jagat Vidya Marg, Sant Dnyaneshwar Nagar, Bandra East, Mumbai, Maharashtra - 400051.</p>
+        </div>
+        <form action="https://formsubmit.co/naiksiddhics232410@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://siddhi124github.github.io/satkshi/thankyou.html" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" minlength="3" maxlength="40" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
+          <textarea name="address" rows="5" minlength="3" maxlength="500" placeholder="Address" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+  document.querySelectorAll(".fade-scroll").forEach(el => observer.observe(el));
+</script>
+</html>
