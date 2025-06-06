@@ -13,6 +13,7 @@
       --light-gray: #f5f5f5;    
       --section-bg-alt: #eaeaea;
     }
+    
  html, body {
   margin: 0 !important;
   padding: 0 !important;
@@ -432,6 +433,10 @@
     margin-right: 0;
   }
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* height of your nav */
+}
 
   </style>
 </head>
@@ -532,6 +537,14 @@ We offer a comprehensive range of fully customizable services designed to meet t
   
   hamburger.addEventListener('click', () => {
     navBar.classList.toggle('active');
+  });
+</script>
+<script>
+  // Close the menu when any nav link is clicked (for mobile)
+  document.querySelectorAll('#nav-bar a').forEach(link => {
+    link.addEventListener('click', () => {
+      navBar.classList.remove('active');
+    });
   });
 </script>
 
