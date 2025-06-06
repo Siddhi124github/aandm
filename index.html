@@ -191,6 +191,72 @@
         margin-left: 0;
       }
     }
+    #about, #mission-vision, #why-us, #expertise {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #contact {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 20px 5px;
+    }
+
+    #contact h1 {
+      font-size: 2.5rem;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #contact a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    form input,
+    form textarea {
+      padding: 15px;
+      border: 1px solid var(--red);
+      margin: 5px 0;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #a81e2f;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 0 0 15px 0;
+    }
 
 .mission-vision-bg {
   position: relative;
