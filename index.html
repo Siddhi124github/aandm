@@ -163,6 +163,14 @@
       line-height: 1.6;
       color: var(--text-gray);
     }
+    @media (max-width: 768px) {
+  #home {
+    background-position: top center; /* show top part more */
+    background-size: cover;
+    height: 70vh; /* reduce height for better fit */
+  }
+}
+
 #about {
   background-color: var(--light-gray);
   padding: 70px 30px 70px;
@@ -374,6 +382,57 @@
   opacity: 1;
   transform: translateY(0);
 }
+    /* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  justify-content: space-between;
+  z-index: 1100;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background-color: var(--dark-blue);
+    position: fixed;
+    top: 50px; /* below nav */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    gap: 15px;
+    margin-left: 0;
+    z-index: 999;
+  }
+  
+  nav ul.active {
+    transform: translateX(0);
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-container a {
+    margin-right: 0;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -383,6 +442,11 @@
         <a href="#home">
           <img src="IMG-20250603-WA0007.jpg" alt="A&M Logo" />
         </a>
+        <div class="hamburger" id="hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
         <ul id="nav-bar">
           <li><a href="#home"><b>Home</b></a></li>
           <li><a href="#about"><b>About Us</b></a></li>
@@ -462,4 +526,13 @@ We offer a comprehensive range of fully customizable services designed to meet t
   });
   document.querySelectorAll(".fade-scroll").forEach(el => observer.observe(el));
 </script>
+  <script>
+  const hamburger = document.getElementById('hamburger');
+  const navBar = document.getElementById('nav-bar');
+  
+  hamburger.addEventListener('click', () => {
+    navBar.classList.toggle('active');
+  });
+</script>
+
 </html>
