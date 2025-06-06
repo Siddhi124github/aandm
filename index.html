@@ -165,14 +165,16 @@
       line-height: 1.6;
       color: var(--text-gray);
     }
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   #home {
-    background-position: top center; /* show top part more */
-    background-size: cover;
-    height: 70vh; 
-    width:auto;/* reduce height for better fit */
+    background-position: top center;
+    background-size: contain; /* change from cover to contain */
+    height: 70vh;
+    width: 100vw; /* make sure it fits viewport width */
+    overflow-x: hidden; /* prevent horizontal scroll */
   }
 }
+
 
 #about {
   background-color: var(--light-gray);
