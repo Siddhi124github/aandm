@@ -192,7 +192,169 @@
       }
     }
 
-    /* Other styles omitted for brevity but keep your existing ones */
+    /* Ot
+.mission-vision-bg {
+  position: relative;
+  background-color: #a81e2f;
+  padding: 100px 20px;
+  z-index: 1;
+  color: white;
+}
+
+.mission-vision-bg h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.mission-vision-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+.card {
+  flex: 1 1 400px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(6, 5, 5, 0.2);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(30px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+  background-color: rgb(228, 219, 219);
+  border: 1px solid #a81e2f;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--red);
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  font-family: 'Georgia', serif;
+  line-height: 1.7;
+  text-align: justify;
+  text-indent: 25px;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 1.2s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 768px) {
+  .mission-vision-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+    /* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  justify-content: space-between;
+  z-index: 1100;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background-color: var(--dark-blue);
+    position: fixed;
+    top: 50px; /* below nav */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    gap: 15px;
+    margin-left: 0;
+    z-index: 999;
+  }
+  
+  nav ul.active {
+    transform: translateX(0);
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-container a {
+    margin-right: 0;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* height of your nav */
+}
   </style>
 </head>
 <body>
@@ -244,7 +406,42 @@
     </section>
 
     <!-- Your other sections here -->
-
+<div class="mission-vision-bg">
+    <h1 class="fade-in">Our Mission & Vision</h1>
+    <div class="mission-vision-wrapper">
+      <div class="card fade-scroll">
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is to help our clients create such high levels of value that together we set new standards of excellence in respective industries.
+        </p>
+      </div>
+    <div class="card fade-scroll">
+        <h2>Our Vision</h2>
+        <p>
+          To maintain an uncompromised standard of ethics and a commitment to provide innovative and value-added solutions to our clients. To strive to exceed our client’s expectations by meeting their needs in an innovative and open manner.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="contact">
+      <h1><u>Contact Us</u></h1>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><b>Phone no:</b> <a href="tel:+911234567890">+91 1234567890</a></p>
+          <p><b>Email:</b> <a href="mailto:acquireandmanage@gmail.com">acquireandmanage@gmail.com</a></p>
+          <p><b>Address:</b> Hallmark Business Plaza, 1106, Jagat Vidya Marg, Sant Dnyaneshwar Nagar, Bandra East, Mumbai, Maharashtra - 400051.</p>
+        </div>
+        <form action="https://formsubmit.co/acquireandmanage@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://siddhi124github.github.io/aandm/thankyou.html" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" minlength="3" maxlength="40" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
+          <textarea name="address" rows="5" minlength="3" maxlength="500" placeholder="Address" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <script>
