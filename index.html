@@ -239,32 +239,24 @@
     }
     
     .company-name {
-      font-size: 8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1;
-      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-      position: relative;
-      display: inline-block;
-    }
-    
-    .company-name::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background-color: var(--red);
-    }
-    
-   .red-amp {
+  font-size: 8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif; /* Changed from Playfair Display to Poppins for simpler look */
+  letter-spacing: -3px; /* Adjust letter spacing to bring letters closer */
+}
+
+.red-amp {
   color: var(--red);
   font-style: normal;
   font-weight: 500; /* Slightly bolder but not too heavy */
   margin: 0 -5px; /* Adjust spacing around ampersand */
 }
+   
     
     .tagline {
       font-size: 1.8rem;
